@@ -102,6 +102,57 @@ const tables = () => {
 			ui.deleteStudent(e.target);
 			ui.showAlert("Teacher Removed!", "error");
 		});
+	document.querySelector(".btn-success").addEventListener("click", (e) => {
+		e.preventDefault();
+		const ui = new UI();
+		const student = document.getElementById("student").value;
+
+		if (student === "") {
+			ui.showAlert("Please fill in all fields", "error");
+		} else {
+			const stuPresent = new StudentPresent(student);
+			ui.clearFields();
+			ui.StuPresent(stuPresent);
+			ui.showAlert("Present Student Added!", "success");
+			ui.deleteStudent(e.target);
+		}
+	});
+
+	document
+		.getElementById("student-present")
+		.addEventListener("click", function (e) {
+			e.preventDefault();
+			const ui = new UI();
+			ui.deleteStudent(e.target);
+			ui.showAlert("Student Removed!", "error");
+		});
+
+	document.querySelector(".btn-danger").addEventListener("click", (e) => {
+		e.preventDefault();
+
+		const ui = new UI();
+		const studentabsent = document.getElementById("student").value;
+		if (studentabsent === "") {
+			// Error alert
+			ui.showAlert("Please fill in all fields", "error");
+		} else {
+			const stuAbsent = new StudentAbsent(studentabsent);
+			ui.clearFields();
+			// const ui = new UI();
+			ui.StuAbsent(stuAbsent);
+			ui.showAlert("Absent Student Added!", "success");
+			ui.deleteStudent(e.target);
+		}
+	});
+
+	document
+		.getElementById("student-absent")
+		.addEventListener("click", function (e) {
+			e.preventDefault();
+			const ui = new UI();
+			ui.deleteStudent(e.target);
+			ui.showAlert("Student Removed!", "error");
+		});
 };
 
 tables();
