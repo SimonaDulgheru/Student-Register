@@ -74,3 +74,34 @@ class UI {
 		document.getElementById("student").value = "";
 	}
 }
+
+const tables = () => {
+	document
+		.getElementById("teacher-lesson-register")
+		.addEventListener("submit", function (e) {
+			e.preventDefault();
+			const teacher = document.getElementById("teacher").value,
+				subject = document.getElementById("subject").value;
+			const register = new RegisterTeacher(teacher, subject);
+			// Instantiate UI
+			const ui = new UI();
+
+			if (teacher === "" || subject === "") {
+				ui.showAlert("Please fill in all fields", "error");
+			} else {
+				ui.addTeacherSubject(register);
+				ui.showAlert("Teacher and Subject Added!", "success");
+			}
+		});
+
+	document
+		.getElementById("teacher-attendance")
+		.addEventListener("click", function (e) {
+			e.preventDefault();
+			const ui = new UI();
+			ui.deleteStudent(e.target);
+			ui.showAlert("Teacher Removed!", "error");
+		});
+};
+
+tables();
