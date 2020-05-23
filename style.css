@@ -1,0 +1,61 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#title {
+	margin-bottom: 20px;
+}
+
+.success,
+.error {
+	color: white;
+	padding: 5px;
+	margin: 5px 0 15px 0;
+}
+
+.success {
+	background: green;
+}
+
+.error {
+	background: red;
+}
+
+.btn-primary {
+	margin: 15px 0;
+}
+
+.form-inline {
+	text-align: center;
+}
+
+.btn-danger {
+	margin-right: 20px;
+}
+
+.btn-success,
+.table-student-present {
+	margin-right: 30px;
+	margin-left: 20px;
+}
+
+#line {
+	width: 1.5px;
+	background-color: rgb(167, 167, 167);
+}
+
+.fa-trash-alt {
+	color: rgb(209, 0, 0);
+}
+
+.fa-trash-alt:hover {
+	color: rgb(255, 79, 35);
+}
