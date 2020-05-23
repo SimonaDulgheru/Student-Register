@@ -156,3 +156,14 @@ const tables = () => {
 };
 
 tables();
+
+const printTable = () => {
+	const divToPrint = document.querySelector(".attendance-tables");
+	newWin = window.open("");
+	newWin.document.write(divToPrint.outerHTML);
+	newWin.print();
+	newWin.close();
+};
+document.getElementById("btn-print").addEventListener("click", () => {
+	printTable();
+});
