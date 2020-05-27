@@ -63,6 +63,20 @@ class UI {
 		}, 2000);
 	}
 
+	showAlertForm(message, className) {
+		const div = document.createElement("div");
+		div.className = `alert ${className}`;
+		div.appendChild(document.createTextNode(message));
+		const attendanceForms = document.querySelector(".attendance-forms");
+		const form = document.getElementById("teacher-lesson-register");
+		attendanceForms.insertBefore(div, form);
+
+		// Alert Timeout after 2 sec
+		setTimeout(function () {
+			document.querySelector(".alert").remove();
+		}, 2000);
+	}
+
 	deleteStudent(target) {
 		if (target.className === "fas fa-trash-alt") {
 			target.parentElement.parentElement.remove();
@@ -87,7 +101,7 @@ const tables = () => {
 			const ui = new UI();
 
 			if (teacher === "" || subject === "") {
-				ui.showAlert("Please fill in all fields", "error");
+				ui.showAlertForm("Please fill in all fields", "error");
 			} else {
 				ui.addTeacherSubject(register);
 				ui.showAlert("Teacher and Subject Added!", "success");
